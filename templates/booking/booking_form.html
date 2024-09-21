@@ -1,0 +1,17 @@
+<form method="post" action="{% url 'book-room' %}">
+    {% csrf_token %}
+    <div>
+        <label for="room-number">room-number: </label>
+        <input type="text" id="room-number" name="room-number">  </input>
+    </div>
+    <div>
+        <label for="start-time">start-time: </label>
+        <input type="datetime-local" id="start-time" name="start-time">  </input>
+    </div>
+    <div>
+        <label for="end-time">room-number: </label>
+        <input type="datetime-local" id="end-time" name="end-time">  </input>
+    </div>
+
+    <button type="submit">book-room</button>
+</form>
