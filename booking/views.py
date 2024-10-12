@@ -35,6 +35,7 @@ def booking_details(request, pk):
     booking = Booking.objects.get(id=pk)
 
     context = {
-        "booking": booking}
-    
+        "booking": booking
+    }
+
     return render(request, "booking/booking_details.html", context)

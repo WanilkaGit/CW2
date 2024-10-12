@@ -5,11 +5,59 @@
     <title>Booking Application</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <h1>Books</h1>
+    <form class="form-group bg-dark">
+        <div class="container text-center">
+            <div class="row align-items-center">
+                <div class="col">
+                    <form method="post" action="{% url 'book-room' %}">
+                        <button type="submit" class="btn btn-outline-warning btn-lg">Register</button>
+                    </form>
+                </div>
+                <div class="col">
+                    <h1></h1>
+                    <form method="post" action="{% url 'book-room' %}">
+                        <button type="submit" class="btn btn-outline-danger btn-lg">Register</button>
+                    </form>
+                </div>
+                <div class="col">
+                    <h1></h1>
+                    <form method="post" action="{% url 'book-room' %}">
+                        <button type="submit" class="btn btn-outline-primary btn-lg">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </form>
     {% block content %}
     {% endblock %}
-    <h1>Test1</h1>
+    <form class="form-inline bg-dark"">
+        <div class="container text-center">
+            <div class="row align-items-center">
+                <div class="col">
+                    <form method="post" action="{% url 'book-room' %}">
+                        <button type="submit" class="btn btn-outline-warning btn-lg">Register</button>
+                    </form>
+                </div>
+                <div class="col">
+                    <h1></h1>
+                    <form method="post" action="{% url 'book-room' %}">
+                        <button type="submit" class="btn btn-outline-danger btn-lg">Register</button>
+                    </form>
+                </div>
+                <div class="col">
+                    <h1></h1>
+                    <form method="post" action="{% url 'book-room' %}">
+                        <button type="submit" class="btn btn-outline-primary btn-lg">Register</button>
+                    <a href="{% url 'logout' %}">logout</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </form>
+    <h1>Us contacts:</h1>
 </body>
 </html>
