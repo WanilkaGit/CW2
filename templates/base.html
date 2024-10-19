@@ -8,52 +8,65 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
-<body>
-    <form class="form-group bg-dark">
+<body class="bg-dark">
+    <form class="form-group">
         <div class="container text-center">
             <div class="row align-items-center">
                 <div class="col">
                     <form method="post" action="{% url 'book-room' %}">
-                        <button type="submit" class="btn btn-outline-warning btn-lg">Register</button>
+                        <button type="submit" class="btn btn-outline-warning btn-lg">Book Room</button>
+                    </form>
+                </div>
+                {% if request.user.is_authenticated %}
+                <div class="col">
+                    <form method="post" action="{% url 'logout' %}">
+                        <button type="submit" class="btn btn-outline-danger btn-lg">Logout</button>
+                    </form>
+                </div>
+                {% else %}
+                <div class="col">
+                    <form method="post" action="{% url 'register' %}">
+                        <button type="submit" class="btn btn-outline-danger btn-lg">Reg</button>
                     </form>
                 </div>
                 <div class="col">
-                    <h1></h1>
-                    <form method="post" action="{% url 'book-room' %}">
-                        <button type="submit" class="btn btn-outline-danger btn-lg">Register</button>
+                    <form method="post" action="{% url 'login' %}">
+                        <button type="submit" class="btn btn-outline-danger btn-lg">Login</button>
                     </form>
                 </div>
-                <div class="col">
-                    <h1></h1>
-                    <form method="post" action="{% url 'book-room' %}">
-                        <button type="submit" class="btn btn-outline-primary btn-lg">Register</button>
-                    </form>
+                {% endif %}
                 </div>
             </div>
         </div>
     </form>
     {% block content %}
     {% endblock %}
-    <form class="form-inline bg-dark"">
+    <form class="form-group">
         <div class="container text-center">
             <div class="row align-items-center">
                 <div class="col">
                     <form method="post" action="{% url 'book-room' %}">
-                        <button type="submit" class="btn btn-outline-warning btn-lg">Register</button>
+                        <button type="submit" class="btn btn-outline-warning btn-lg">Book Room</button>
+                    </form>
+                </div>
+                {% if request.user.is_authenticated %}
+                <div class="col">
+                    <form method="post" action="{% url 'logout' %}">
+                        <button type="submit" class="btn btn-outline-danger btn-lg">Logout</button>
+                    </form>
+                </div>
+                {% else %}
+                <div class="col">
+                    <form method="post" action="{% url 'register' %}">
+                        <button type="submit" class="btn btn-outline-danger btn-lg">Reg</button>
                     </form>
                 </div>
                 <div class="col">
-                    <h1></h1>
-                    <form method="post" action="{% url 'book-room' %}">
-                        <button type="submit" class="btn btn-outline-danger btn-lg">Register</button>
+                    <form method="post" action="{% url 'login' %}">
+                        <button type="submit" class="btn btn-outline-danger btn-lg">Login</button>
                     </form>
                 </div>
-                <div class="col">
-                    <h1></h1>
-                    <form method="post" action="{% url 'book-room' %}">
-                        <button type="submit" class="btn btn-outline-primary btn-lg">Register</button>
-                    <a href="{% url 'logout' %}">logout</a>
-                    </form>
+                {% endif %}
                 </div>
             </div>
         </div>
