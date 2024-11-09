@@ -12,11 +12,42 @@
     <form class="form-group">
         <div class="container text-center">
             <div class="row align-items-center">
+                <nav class="navbar bg-body-tertiary">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">
+                        <img src="/static/img/logo.svg" alt="Logo" width="50" height="50" class="d-inline-block">
+                        Haven's Hotel
+                        </a>
+                    </div>
+                </nav>
                 <div class="col">
-                    <form method="post" action="{% url 'book-room' %}">
-                        <button type="submit" class="btn btn-outline-warning btn-lg">Book Room</button>
+                    <form method="post" action="{% url 'room-list' %}">
+                        <button type="submit" class="btn btn-outline-danger btn-lg">Room's list</button>
                     </form>
                 </div>
+                <div class="col">
+                    <form method="post" action="{% url 'book-room' %}">
+                        <button type="submit" class="btn btn-outline-danger btn-lg">Book</button>
+                    </form>
+                </div>
+                <nav class="navbar bg-body-tertiary">
+                    <div class="container-fluid">
+                        <form class="d-flex" role="search" onsubmit="navigateToLink(event)">
+                            <button class="btn btn-outline-success" type="submit">More about room: </button>
+                            <input id="roomInput" class="form-control me-2" type="search" placeholder="Room number..." aria-label="Search">
+                        </form>
+                    </div>
+                </nav>
+                
+                <script>
+                function navigateToLink(event) {
+                    event.preventDefault(); // Запобігає перезавантаженню сторінки
+                    const roomNumber = document.getElementById('roomInput').value;
+                    if (roomNumber) {
+                        window.location.href = `/booking-details/${roomNumber}`;
+                    }
+                }
+                </script>
                 {% if request.user.is_authenticated %}
                 <div class="col">
                     <form method="post" action="{% url 'logout' %}">
